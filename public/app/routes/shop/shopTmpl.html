@@ -1,0 +1,64 @@
+
+<img src="./assets/int5.jpg" alt="Museum shop" class="shopJumbotron">
+
+<div class="shopContent">
+
+  <section class="shopNav">
+    <div class="shopMenu">
+      <select class="showMe" ng-model="category" style="background-color: white">
+        <option name="shopMenu" value="">Show me...</option>
+        <option name="shopMenu" value="APP">Apparel</option>
+        <option name="shopMenu" value="ART">Art</option>
+        <option name="shopMenu" value="BOO">Books</option>
+        <option name="shopMenu" value="JWL">Jewelry</option>
+        <option name="shopMenu" value="HOM">Home goods</option>
+        <option name="shopMenu" value="STA">Office Goods</option>
+      </select>
+    </div>
+    <div class="shopUserOptions">
+      <a href="/auth"><h3>Login</h3></a>
+      <a ui-sref="account"><h3>My Account</h3></a>
+      <a ui-sref="orders"><i class="fa fa-shopping-bag fa-3x" aria-hidden="true"></i></a>
+      <h4>{{cartExtent}}</h4>
+    </div>
+  </section>
+
+
+  <section class="productGallery">
+      <div class="productContainer" ng-repeat="product in products | filter: categoryFilter">
+        <div class="hoverContainer">
+        <img class="productImage" src="{{product.image}}" a={{product.name}}/>
+        <div class="hoverOverlay">
+          <div class="hoverText">
+            <p>
+              {{product.name}} <br />
+              {{product.price | currency}}
+            </p>
+            <button class="hoverButton" type="button" name="button" ng-click="getProduct(product.productid); hideM()">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="modalWrapper" ng-hide="hideModal" ng-click="hideM()" >
+    <div class="modal">
+      <!-- <x-icon ng-click="hideM()"></x-icon> -->
+      <div class="modalContent">
+        <h1>{{singleProduct.name}}</h1>
+        <div class="lowerModalContent">
+          <img class="modalImage" src="{{singleProduct.image}}" />
+          <div class="modalInfo">
+            <p>{{singleProduct.description}}</p>
+          </div>
+        </div>
+        <div class="priceInfo">
+          <h4>{{singleProduct.price | currency}}</h4>
+          <button class="modalButton" ng-click="addToCart(singleProduct.productid, 1)">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>

@@ -1,0 +1,659 @@
+$darkGrey: #444;
+$bodyBackground: #FFF;
+
+
+/************WHOLE SITE************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $bodyBackground;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+/************HOME VIEW************/
+.mainHeader {
+  font-family: "Cormorant", serif;
+  font-variant: small-caps;
+  font-weight: lighter;
+  font-size: 7em;
+  text-align: center;
+}
+
+.mainSubheader {
+  font-family: "Cormorant Upright", serif;
+  text-transform: uppercase;
+  font-size: 2.2em;
+  margin-top: -50px;
+  text-align: center;
+}
+
+.exhibitDates {
+  font-family: "Cormorant Upright", serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.45em;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+// .headerBackground {
+//   width: 100%;
+//   z-index: -10;
+// }
+
+.headerBackground {
+  width: 100%;   /* Viewport Width */
+  height: 60vh;   /* Viewport Height (~ 199.42px) */
+  background: url('../assets/longHompageScroll.jpg') no-repeat center center;
+  background-size: 3289px;  /* Our sprite as viewport background */
+  animation: scroll 150s; /* The Animation */
+  filter: drop-shadow(-8px -5px 12px black);
+}
+
+@keyframes scroll {
+  100% { background-position: 0 0; }
+}
+
+.headerPortrait {
+  width: 35%;
+  transform: translate(0, -95%);
+  position: absolute;
+}
+
+.siteOverview h2 {
+  font-family: "Allura", cursive;
+  font-weight: lighter;
+  font-size: 8em;
+}
+
+.siteOverview p {
+  font-family: "Cormorant", serif;
+  font-size: 2em;
+  margin-top: -10px;
+}
+
+.siteOverviewSubdiv {
+  border: 2px $bodyBackground solid;
+}
+
+.siteOverviewSubdiv a:hover {
+  text-shadow: 2px 2px 3px grey;
+}
+
+.siteOverviewSubdivText {
+  margin: 5% 30px;
+}
+
+.siteOverviewImage {
+  width: 25%;
+  height: 100%;
+  margin: 5% 5%;
+  display: inline-block;
+}
+
+// .siteOverviewImage img:hover {
+//   transform: scale(1.25, 1.25);
+// }
+
+.flexDisplay {
+  display: flex;
+  align-items: center;
+}
+
+#bambooGrove {
+  width: 20%;
+  margin: 5% 0 5% 5%;
+  box-shadow: 5px 8px 5px grey;
+  transform: rotate(-5deg)
+}
+
+#tickets {
+  // transform: rotate(-10deg);
+  transform: translate(-50px, 30px);
+  width: 30%;
+}
+
+#flowers {
+  transform: scale(1.18, 1.18);
+  z-index: -5;
+}
+
+.visit {
+  text-align: right;
+  color: $bodyBackground;
+  background-color: #000;
+  border: 2px #131F18 solid;
+}
+
+
+/************EXPLORE**********/
+.exploreText {
+  background-color: white;
+  background-size: 150%;
+  color: black;
+}
+
+.exploreText h1 {
+  font-family: "Open Sans", sans-serif;
+  font-variant: small-caps;
+  font-size: 3.5em;
+  letter-spacing: 4px;
+  text-align: center;
+}
+
+// .exploreText h1 {
+//   font-family: "Allura", cursive;
+//   font-weight: lighter;
+//   font-size: 5.5em;
+//   text-align: center;
+//   line-height: .5
+// }
+
+.exploreText p {
+  font-family: 'Cormorant', serif;
+  font-size: 1.5em;
+  max-width: 90%;
+  margin: -10px auto 80px auto;
+}
+
+.slideshow {
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.mySlides {
+  width: 45%;
+  margin: 22px 11px;
+  display: inline;
+}
+
+.longSlide {
+  max-height: 120vh !important;
+  margin: 14px 14px;
+  display: inline;
+}
+
+.wideSlide {
+  width: 90%;
+}
+
+/************VISIT************/
+.visitHeader {
+  font-family: "Open Sans", sans-serif;
+  font-variant: small-caps;
+  font-size: 3.5em;
+  letter-spacing: 4px;
+  text-align: center;
+}
+
+.visitImage {
+  width: 100%;
+}
+
+.visitInfo {
+  margin-left: 20px;
+}
+
+.gaaaaah {
+  // position: relative;
+  display: inline-block;
+  width: 150%;
+  height: 400px;
+  overflow: visible;
+}
+
+.mapSection {
+  transform: translate(-40%);
+}
+
+.hoursAndTickets, .location {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 0;
+}
+
+.indent {
+  margin-left: 20px;
+}
+
+.hours, .tickets, .findUs, .mapSection {
+  width: 30%;
+  display: inline-block;
+}
+
+.hoursAndTickets h2, .findUs h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2em;
+  letter-spacing: 2px;
+}
+
+.hoursAndTickets p, .findUs p {
+  font-family: "Cormorant", serif;
+  font-size: 1.5em;
+}
+
+.hoursAndTickets button {
+  font-family: "Cormorant", sans-serif;
+  font-size: 1.5em;
+  font-weight: bolder;
+  text-align: center;
+  padding: 10px;
+  width: 125px;
+  box-shadow: 4px 5px 6px 1px $darkGrey;
+  color: $darkGrey;
+  position: relative;
+  margin-top: 5px;
+  margin-left: 20%;
+  // align-self: center;
+}
+//
+// .tickets {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+/************SHOP************/
+.shopJumbotron {
+  width: 100%;
+}
+
+// .loginBox {
+//   font-family: 'Open Sans', sans-serif;
+//   display: block;
+//   position: absolute;
+//   color: color;
+//   background: rgba(211,211,211, .4);
+//   width: 50%;
+//   height: 50%;
+//   z-index: 10;
+//   margin-top: 20px;
+//   text-align: center;
+//   left: 50%;
+//   transform: translate(-50%);
+// }
+
+.hidden {
+  display: none;
+}
+
+.shopNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 5%;
+}
+
+.showMe {
+  font-family: 'Open Sans', sans-serif;
+  font-variant: small-caps;
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: #494949;
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+.shopMenu {
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  font-variant: small-caps;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #494949;
+  margin-left: 15px;
+  font-weight: bold;
+  background: white;
+  width: auto;
+  border: none;
+}
+
+.shopUserOptions {
+  display: flex;
+  align-items: baseline;
+}
+
+.shopUserOptions h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  margin-left: 10px;
+  letter-spacing: 2px;
+}
+
+.shopNav h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-variant: small-caps;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: #494949;
+  margin-right: 50px;
+}
+
+.productGallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.hoverContainer {
+  position: relative;
+}
+
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: auto;
+  margin: 50px;
+}
+
+.hoverOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .75s ease;
+  border-radius: 5px;
+  background-color: rgb(255, 248, 238);
+}
+
+.hoverContainer:hover .hoverOverlay {
+   opacity: .9;
+  // background-color: rgba(211, 211, 211, 0.5);
+}
+
+.hoverButton {
+  opacity: 1;
+  background-color: black;
+  color: white;
+  border: none;
+  margin-top: 50px;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.hoverText {
+  font-family: 'Cormorant', serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.productImage {
+  width: 95%;
+}
+
+.modalWrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: rgba(200, 200, 200, .7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  font-family: 'Cormorant', serif;
+  width: 75%;
+  height: 550px;
+  background-color: white;
+  box-shadow: 35px 15px 30px grey;
+  border-radius: 8px;
+  transition: .75s ease;
+  color: black;
+}
+
+.modalContent {
+  margin: 0 25px;
+  height: 90%;
+  overflow-y: auto;
+}
+
+.modalContent h1 {
+  font-size: 2.75em;
+  font-size: 3.5vw;
+}
+
+.lowerModalContent {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.modalInfo {
+  margin: 0 30px 0 60px;
+}
+
+.modalInfo p {
+  font-size: 1.5em;
+}
+
+.priceInfo h4 {
+  font-size: 1.6em;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.priceInfo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.modalButton {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5em;
+  margin: 15px;
+  padding: 10px;
+}
+
+.modalImage {
+  width: 40%;
+  align-self: baseline;
+  //border: red 2px solid;
+}
+
+/************ACCOUNT************/
+.accountWrapper{
+  font-family: 'Cormorant', serif;
+  font-size: 1.5em;
+  margin: 50px 30px;
+}
+
+.loginButton {
+  display: inline-block;
+}
+
+.userForm {
+  display: table;
+}
+
+.userForm p {
+  display: table-row;
+}
+
+.userForm label, .userForm input {
+  display: table-cell;
+}
+
+.accountWrapper button {
+  margin: 25px 100px;
+}
+
+
+/************ORDERS************/
+.ordersWrapper h1 {
+  font-family: 'Cormorant', serif;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.orderContent {
+  min-height: 65vh;
+}
+
+.ordersWrapper {
+  font-family: 'Cormorant', serif;
+  font-size: 1.15em;
+}
+
+.orderTotal {
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.orderTop {
+  margin-right: 20px;
+}
+
+.shopReturn {
+  position: absolute;
+  right: 20px;
+}
+
+.orderThumbnail {
+  height: 80px;
+}
+
+.orderDetails {
+  margin-left: 10%;
+  display: inline-block;
+  width: 40%;
+}
+
+.paymentForm {
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+  text-align: right;
+}
+
+.ordersWrapper span {
+  font-weight: bold;
+}
+
+.ordersWrapper h4 {
+  font-family: 'Cormorant', serif;;
+  font-size: 1.5em;
+}
+
+/************CONGRATS************/
+.congratsWrapper {
+  font-family: 'Cormorant', serif;
+  font-size: 1.25em;
+  text-align: center;
+  min-height: 60vh;
+  margin-top: 20vh;
+}
+
+.congratsBtn {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+
+/************DIRECTIVES************/
+.nav {
+  background-color: black;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  letter-spacing: 4px;
+}
+
+.navOptions li {
+  color: #E6D598;
+  display: inline-block;
+  // text-transform: uppercase;
+  font-variant: small-caps;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.navOptions li:hover {
+  text-decoration: underline;
+}
+
+#homeIcon {
+  width: 35px;
+  margin-left: 30px;
+}
+
+.footer {
+  padding: 30px;
+  color: grey;
+  background-color: black;
+  font-family: "Cormorant", serif;
+}
+
+.footerList {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footerList p {
+  font-family: "Cormorant";
+  font-size: 22px;
+  display: inline-block;
+}
+
+.social-media-icon {
+  margin-right: 15px;
+}
+
+/************ACKNOWLEDGEMENTS************/
+.acknowledgementsWrapper {
+  font-family: 'Cormorant', serif;
+  font-size: 1.55em;
+  position: relative;
+  color: black;
+  min-height: 85vh;
+  line-height: 1.5;
+}
+
+.acknowledgementsWrapper::after {
+  content: "";
+  background: url(../assets/mountainFix.jpg) no-repeat center center fixed;
+  opacity: 0.275;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.acknowledgementsText {
+  padding: 60px 25%;
+}

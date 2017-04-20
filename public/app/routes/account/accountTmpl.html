@@ -1,0 +1,62 @@
+<div class="accountWrapper">
+  <h1>Account Info</h1> <a href='/auth'><button type="button" name="button" class="loginButton">Log in</button></a>
+  <form class="userForm">
+    <p>
+      <label for="fn">First name:</label>
+      <input type="text" name="" value="" ng-model="updateuser.userfirstname"> {{user.userfirstname}}
+    </p>
+    <p>
+      <label for="fn">Last name:</label>
+      <input type="text" name="" value="" ng-model="updateuser.userlastname"> {{user.userlastname}}
+    </p><br />
+
+    <p>
+      <label for="">Address:</label>
+      <input type="text" name="" value="" ng-model="updateuser.useraddress"> {{user.useraddress}}
+    </p>
+    <p>
+      <label for="fn">Address 2:</label>
+      <input type="text" name="" value="" ng-model="updateuser.useraddress2"> {{user.useraddress2}}
+    </p>
+    <p>
+      <label for="fn">City:</label>
+      <input type="text" name="" value="" ng-model="updateuser.usercity"> {{user.usercity}}
+    </p>
+    <p>
+      <label for="fn">State:</label>
+      <input type="text" name="" value="" ng-model="updateuser.userstate"> {{user.userstate}}
+    </p>
+    <p>
+      <label for="fn">Zip or postal code: </label>
+      <input type="text" name="" value="" ng-model="updateuser.userzip"> {{user.userzip}}
+    </p>
+    <p>
+      <label for="fn">Country:</label>
+      <input type="text" name="" value="" ng-model="updateuser.usercountry"> {{user.usercountry}}
+    </p><br />
+
+    <p>
+      <label for="fn">Email:</label>
+      <input type="text" name="" value="" ng-model="updateuser.useremail"> {{user.useremail}}
+    </p>
+    <p>
+      <label for="fn">Phone:</label>
+      <input type="text" name="" value="" ng-model="updateuser.userphone"> {{user.userphone}}
+    </p>
+  </form>
+  <button type="submit" name="button" ng-click="updateUser(updateuser)">Update information</button>
+
+  <h1>Order History</h1>
+  <section>
+    <div class="userOrders" ng-repeat="order in userOrders">
+      <ul>
+        <li>Order ID: {{order.orderid}}</li>
+        <li>Total: {{order.orderamount}}</li>
+        <li>Date: {{order.datecompleted | date: 'mediumDate'}}</li>
+      </ul>
+      <br />
+      <hr />
+      <br />      
+    </div>
+  </section>
+</div>
