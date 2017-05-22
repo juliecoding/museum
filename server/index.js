@@ -51,8 +51,8 @@ app.get('/auth/callback', function(req, res, next) {
   }
   req.session.state = null;
   passport.authenticate('auth0', {
-    successRedirect: 'http://192.241.238.48:3100/shop' /*state*/ ,
-    failureRedirect: 'http://192.241.238.48:3100/shop'
+    successRedirect: 'http://192.241.238.48:3100/#/shop' /*state*/ ,
+    failureRedirect: 'http://192.241.238.48:3100/#/shop'
   })(req, res, next);
 });
 
