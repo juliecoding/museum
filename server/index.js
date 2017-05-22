@@ -17,57 +17,57 @@ app.use(bodyParser.json());
 //MASSIVE//
 var massiveUri = config.MASSIVE_URI;
 var massiveServer = massive.connectSync({
-	connectionString: massiveUri
+  connectionString: massiveUri
 });
 app.set('db', massiveServer);
 var db = app.get('db');
 
 // //DB SETUP//
-var dbSetup = require('./services/dbSetup');   //Q. Is this dbSetup file necessary any time you have a database? A. It's a good idea to include it when you have SQL databases.
+var dbSetup = require('./services/dbSetup'); //Q. Is this dbSetup file necessary any time you have a database? A. It's a good idea to include it when you have SQL databases.
 dbSetup.run();
 
 // SESSION AND PASSPORT //
 var passport = require('./services/passport');
 app.use(session({
-	secret: config.SESSION_SECRET,
-	saveUninitialized: false,
-	resave: false
+  secret: config.SESSION_SECRET,
+  saveUninitialized: false,
+  resave: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 //PASSPORT ENDPOINTS//
 app.get('/auth', function(req, res, next) {
-	if (req.query.state) {
-		req.session.state = req.query.state;
-	}
-	passport.authenticate('auth0')(req, res, next);
+  if (req.query.state) {
+    req.session.state = req.query.state;
+  }
+  passport.authenticate('auth0')(req, res, next);
 });
 
 app.get('/auth/callback', function(req, res, next) {
-	var state = 'profile';
-	if (req.session.state) {
-		state = req.session.state;
-	}
-	req.session.state = null;
-	passport.authenticate('auth0', {
-	successRedirect: '/#/shop' /*state*/,
-	failureRedirect: '/#/'
-	})(req, res, next);
+  var state = 'profile';
+  if (req.session.state) {
+    state = req.session.state;
+  }
+  req.session.state = null;
+  passport.authenticate('auth0', {
+    successRedirect: '/#/shop' /*state*/ ,
+    failureRedirect: '/#/'
+  })(req, res, next);
 });
 
 
 app.get('/api/logout', function(req, res, next) {
-	req.logout();
-	return res.status(200).send('Logged out');
+  req.logout();
+  return res.status(200).send('Logged out');
 }); //MAY NOT WORK! Consult Passport-auth0 docs.
 
 
 // POLICIES //
 var isAuthed = function(req, res, next) {
-	if (!req.isAuthenticated())
-		return res.status(401).send("User is not authorized");
-	return next();
+  if (!req.isAuthenticated())
+    return res.status(401).send("User is not authorized");
+  return next();
 };
 
 // CONTROLLERS//
@@ -120,14 +120,14 @@ var stripe = require('stripe')(config.keySecret);
 // 	});
 // });
 
-app.post('/api/payment', function(req, res, next){
+app.post('/api/payment', function(req, res, next) {
   console.log("tester string", req.body);
   //convert amount to pennies
   const chargeAmt = req.body.amount;
   const amountArray = chargeAmt.toString().split('');
   const pennies = [];
   for (var i = 0; i < amountArray.length; i++) {
-    if(amountArray[i] === ".") {
+    if (amountArray[i] === ".") {
       if (typeof amountArray[i + 1] === "string") {
         pennies.push(amountArray[i + 1]);
       } else {
@@ -138,9 +138,9 @@ app.post('/api/payment', function(req, res, next){
       } else {
         pennies.push("0");
       }
-    	break;
+      break;
     } else {
-    	pennies.push(amountArray[i])
+      pennies.push(amountArray[i])
     }
   }
   const convertedAmt = parseInt(pennies.join(''));
@@ -148,22 +148,21 @@ app.post('/api/payment', function(req, res, next){
   console.log(convertedAmt);
 
   const charge = stripe.charges.create({
-  amount: convertedAmt, // amount in cents, again
-  currency: 'usd',
-  source: req.body.payment.token,
-  description: 'Test charge from MoEA site'
-}, function(err, charge) {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			console.log('charge: ', charge);
-		}
-     res.sendStatus(200);
-  // if (err && err.type === 'StripeCardError') {
-  //   // The card has been declined
-  // }
-});
+    amount: convertedAmt, // amount in cents, again
+    currency: 'usd',
+    source: req.body.payment.token,
+    description: 'Test charge from MoEA site'
+  }, function(err, charge) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('charge: ', charge);
+    }
+    res.sendStatus(200);
+    // if (err && err.type === 'StripeCardError') {
+    //   // The card has been declined
+    // }
+  });
 });
 
 
@@ -171,5 +170,5 @@ app.post('/api/payment', function(req, res, next){
 // CONNECTIONS //
 var port = config.PORT;
 app.listen(port, function() {
-	console.log('Listening on port ' + port);
+  console.log('Listening on port ' + port);
 });
