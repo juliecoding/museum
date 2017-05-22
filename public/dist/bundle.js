@@ -310,6 +310,22 @@ angular.module('app')
 //     };
 // });
 
+angular.module("app").controller("navCtrl", ["$scope", "authService", "$state", function($scope, authService, $state) {
+  $scope.logout = function() {
+    authService.logout().then(function(response) {
+      $state.go('login');
+    });
+  };
+}]);
+
+angular.module('app').directive('navDir', function() {
+  return {
+    restrict: 'EA',
+    templateUrl: './app/directives/nav/navTmpl.html',
+    controller: 'navCtrl'
+  };
+});
+
 angular.module("app").controller("populateShopCtrl", ["$scope", "mainService", function($scope, mainService) {
 
   $scope.product = mainService.product;
@@ -326,22 +342,6 @@ angular.module("app").directive('populateShop', function() {
     templateUrl: './app/directives/populate-shop/populateShopTmpl.html',
     controller: 'populateShopCtrl'
   }
-});
-
-angular.module("app").controller("navCtrl", ["$scope", "authService", "$state", function($scope, authService, $state) {
-  $scope.logout = function() {
-    authService.logout().then(function(response) {
-      $state.go('login');
-    });
-  };
-}]);
-
-angular.module('app').directive('navDir', function() {
-  return {
-    restrict: 'EA',
-    templateUrl: './app/directives/nav/navTmpl.html',
-    controller: 'navCtrl'
-  };
 });
 
 angular.module("app").controller("accountCtrl", ["$scope", "userService", "orderService", function($scope, userService, orderService) {
