@@ -45,14 +45,14 @@ app.get('/auth', function(req, res, next) {
 });
 
 app.get('/auth/callback', function(req, res, next) {
-  var state = 'profile';
+  var state = 'shop';
   if (req.session.state) {
     state = req.session.state;
   }
   req.session.state = null;
   passport.authenticate('auth0', {
-    successRedirect: '/#/shop' /*state*/ ,
-    failureRedirect: '/#/'
+    successRedirect: 'http://192.241.238.48:3100/shop' /*state*/ ,
+    failureRedirect: 'http://192.241.238.48:3100/shop'
   })(req, res, next);
 });
 
