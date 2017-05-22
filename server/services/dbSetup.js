@@ -6,9 +6,9 @@ var config = require('./../config');
 // // ALLOW CONSOLE OUTPUT //
 // var allowConsolePutput = config.INITIALIZE_LOG;
 // var log = function(input) {
-// 	if (allowConsolePutput) {
-// 		console.log(input);
-// 	}
+//   if (allowConsolePutput) {
+//     console.log(input);
+//   }
 // };
 
 // INITIALIZE FUNCTION //
