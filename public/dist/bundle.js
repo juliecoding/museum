@@ -326,24 +326,6 @@ angular.module('app').directive('navDir', function() {
   };
 });
 
-angular.module("app").controller("populateShopCtrl", ["$scope", "mainService", function($scope, mainService) {
-
-  $scope.product = mainService.product;
-
-  $scope.message = mainService.message;
-
-  $scope.newMessage = "Hi from the controller!"
-
-}]);
-
-angular.module("app").directive('populateShop', function() {
-  return {
-    restrict: 'EA',
-    templateUrl: './app/directives/populate-shop/populateShopTmpl.html',
-    controller: 'populateShopCtrl'
-  }
-});
-
 angular.module("app").controller("accountCtrl", ["$scope", "userService", "orderService", function($scope, userService, orderService) {
 
 
@@ -385,6 +367,24 @@ angular.module("app").controller("accountCtrl", ["$scope", "userService", "order
   //   })
 
 }]);
+
+angular.module("app").controller("populateShopCtrl", ["$scope", "mainService", function($scope, mainService) {
+
+  $scope.product = mainService.product;
+
+  $scope.message = mainService.message;
+
+  $scope.newMessage = "Hi from the controller!"
+
+}]);
+
+angular.module("app").directive('populateShop', function() {
+  return {
+    restrict: 'EA',
+    templateUrl: './app/directives/populate-shop/populateShopTmpl.html',
+    controller: 'populateShopCtrl'
+  }
+});
 
 // INITIALIZE CONTROLLER
 // ============================================================
@@ -560,6 +560,10 @@ angular.module("app")
 		};
 	}]);
 
+angular.module("app").controller("visitCtrl", ["$scope", function($scope) {
+
+}]);
+
 // INITIALIZE CONTROLLER
 // ============================================================
 angular.module("app").controller("shopCtrl", ["$scope", "productService", "incartService", "orderService", "$state", function($scope, productService, incartService, orderService, $state) {
@@ -608,9 +612,5 @@ angular.module("app").controller("shopCtrl", ["$scope", "productService", "incar
     }
     return false;
   }
-
-}]);
-
-angular.module("app").controller("visitCtrl", ["$scope", function($scope) {
 
 }]);
