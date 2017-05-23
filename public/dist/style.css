@@ -11,6 +11,9 @@ a {
   text-decoration: none;
   color: inherit; }
 
+button {
+  padding: 10px; }
+
 /************HOME VIEW************/
 .mainHeader {
   font-family: "Cormorant", serif;
@@ -166,7 +169,8 @@ a {
 .mapSection {
   transform: translate(-40%); }
 
-.hoursAndTickets, .location {
+.hoursAndTickets,
+.location {
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -175,16 +179,21 @@ a {
 .indent {
   margin-left: 20px; }
 
-.hours, .tickets, .findUs, .mapSection {
+.hours,
+.tickets,
+.findUs,
+.mapSection {
   width: 30%;
   display: inline-block; }
 
-.hoursAndTickets h2, .findUs h2 {
+.hoursAndTickets h2,
+.findUs h2 {
   font-family: "Open Sans", sans-serif;
   font-size: 2em;
   letter-spacing: 2px; }
 
-.hoursAndTickets p, .findUs p {
+.hoursAndTickets p,
+.findUs p {
   font-family: "Cormorant", serif;
   font-size: 1.5em; }
 
@@ -386,7 +395,8 @@ a {
 .userForm p {
   display: table-row; }
 
-.userForm label, .userForm input {
+.userForm label,
+.userForm input {
   display: table-cell; }
 
 .accountWrapper button {

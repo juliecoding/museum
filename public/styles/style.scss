@@ -1,7 +1,6 @@
 $darkGrey: #444;
 $bodyBackground: #FFF;
 
-
 /************WHOLE SITE************/
 
 * {
@@ -19,9 +18,13 @@ a {
   color: inherit;
 }
 
+button {
+  padding: 10px;
+}
 
 
 /************HOME VIEW************/
+
 .mainHeader {
   font-family: "Cormorant", serif;
   font-variant: small-caps;
@@ -51,18 +54,23 @@ a {
 //   width: 100%;
 //   z-index: -10;
 // }
-
 .headerBackground {
-  width: 100%;   /* Viewport Width */
-  height: 60vh;   /* Viewport Height (~ 199.42px) */
+  width: 100%;
+  /* Viewport Width */
+  height: 60vh;
+  /* Viewport Height (~ 199.42px) */
   background: url('../assets/longHompageScroll.jpg') no-repeat center center;
-  background-size: 3289px;  /* Our sprite as viewport background */
-  animation: scroll 150s; /* The Animation */
+  background-size: 3289px;
+  /* Our sprite as viewport background */
+  animation: scroll 150s;
+  /* The Animation */
   filter: drop-shadow(-8px -5px 12px black);
 }
 
 @keyframes scroll {
-  100% { background-position: 0 0; }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .headerPortrait {
@@ -105,7 +113,6 @@ a {
 // .siteOverviewImage img:hover {
 //   transform: scale(1.25, 1.25);
 // }
-
 .flexDisplay {
   display: flex;
   align-items: center;
@@ -138,6 +145,7 @@ a {
 
 
 /************EXPLORE**********/
+
 .exploreText {
   background-color: white;
   background-size: 150%;
@@ -159,7 +167,6 @@ a {
 //   text-align: center;
 //   line-height: .5
 // }
-
 .exploreText p {
   font-family: 'Cormorant', serif;
   font-size: 1.5em;
@@ -191,7 +198,9 @@ a {
   width: 90%;
 }
 
+
 /************VISIT************/
+
 .visitHeader {
   font-family: "Open Sans", sans-serif;
   font-variant: small-caps;
@@ -220,7 +229,8 @@ a {
   transform: translate(-40%);
 }
 
-.hoursAndTickets, .location {
+.hoursAndTickets,
+.location {
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -231,18 +241,23 @@ a {
   margin-left: 20px;
 }
 
-.hours, .tickets, .findUs, .mapSection {
+.hours,
+.tickets,
+.findUs,
+.mapSection {
   width: 30%;
   display: inline-block;
 }
 
-.hoursAndTickets h2, .findUs h2 {
+.hoursAndTickets h2,
+.findUs h2 {
   font-family: "Open Sans", sans-serif;
   font-size: 2em;
   letter-spacing: 2px;
 }
 
-.hoursAndTickets p, .findUs p {
+.hoursAndTickets p,
+.findUs p {
   font-family: "Cormorant", serif;
   font-size: 1.5em;
 }
@@ -261,6 +276,7 @@ a {
   margin-left: 20%;
   // align-self: center;
 }
+
 //
 // .tickets {
 //   display: flex;
@@ -268,6 +284,7 @@ a {
 // }
 
 /************SHOP************/
+
 .shopJumbotron {
   width: 100%;
 }
@@ -286,7 +303,6 @@ a {
 //   left: 50%;
 //   transform: translate(-50%);
 // }
-
 .hidden {
   display: none;
 }
@@ -376,7 +392,7 @@ a {
 }
 
 .hoverContainer:hover .hoverOverlay {
-   opacity: .9;
+  opacity: .9;
   // background-color: rgba(211, 211, 211, 0.5);
 }
 
@@ -481,8 +497,10 @@ a {
   //border: red 2px solid;
 }
 
+
 /************ACCOUNT************/
-.accountWrapper{
+
+.accountWrapper {
   font-family: 'Cormorant', serif;
   font-size: 1.5em;
   margin: 50px 30px;
@@ -500,7 +518,8 @@ a {
   display: table-row;
 }
 
-.userForm label, .userForm input {
+.userForm label,
+.userForm input {
   display: table-cell;
 }
 
@@ -510,6 +529,7 @@ a {
 
 
 /************ORDERS************/
+
 .ordersWrapper h1 {
   font-family: 'Cormorant', serif;
   font-size: 2.5em;
@@ -561,11 +581,14 @@ a {
 }
 
 .ordersWrapper h4 {
-  font-family: 'Cormorant', serif;;
+  font-family: 'Cormorant', serif;
+  ;
   font-size: 1.5em;
 }
 
+
 /************CONGRATS************/
+
 .congratsWrapper {
   font-family: 'Cormorant', serif;
   font-size: 1.25em;
@@ -581,6 +604,7 @@ a {
 
 
 /************DIRECTIVES************/
+
 .nav {
   background-color: black;
   padding: 25px;
@@ -632,7 +656,9 @@ a {
   margin-right: 15px;
 }
 
+
 /************ACKNOWLEDGEMENTS************/
+
 .acknowledgementsWrapper {
   font-family: 'Cormorant', serif;
   font-size: 1.55em;
