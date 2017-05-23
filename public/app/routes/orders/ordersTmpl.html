@@ -1,10 +1,10 @@
 <div class="ordersWrapper">
   <h1>Orders</h1>
-<div class="orderTop">
-  <h4 class="orderTotal">Total: {{total | currency}} </h4>
-  <a ui-sref="shop"><button type="button" name="button" class="shopReturn">Keep Shopping</button></a>
-</div>
-<br />
+  <div class="orderTop">
+    <h4 class="orderTotal">Total: {{total | currency}} </h4>
+    <a ui-sref="shop"><button type="button" name="button" class="shopReturn">Keep Shopping</button></a>
+  </div>
+  <br />
 
   <div class="orderContent">
     <section class="orderDetails">
@@ -12,7 +12,7 @@
       <div class="" ng-repeat="product in orderData.products">
         <span>Name:</span> {{product.name}}<br>
         <span>Price:</span> {{product.price | currency}}<br>
-        <img class="orderThumbnail" src="{{product.image}}" />
+        <img class="orderThumbnail" src="{{product.image1}}" />
         <br />
         <button type="button" name="button" ng-click="deleteItem(product.incartid)">Delete</button>
         <hr>
@@ -21,101 +21,84 @@
 
     <section class="paymentForm">
       <form ng-submit='charge(payment, totalInPennies)'>
-          <h1>Payment Details</h1>
-          <section class='form-group'>
-            <label>Subtotal:</label>
-            <div style="display:inline-block">
-              {{total | currency}}
-            </div> <br />
-            <label>Taxes:</label>
-            <div style="display:inline-block">
-              {{tax | currency}}
-            </div> <br />
-            <label>Shipping:</label>
-            <div style="display:inline-block">
-              {{shipping | currency}}
-            </div>
-            <!-- <input
-            class='form-control'
-            type="text"
-            name=""
-            ng-model='mockPrice'
-            placeholder="Type in total, ex: 120.00"
-            value='{{total | currency}}'
-            required> -->
-          </section>
-          <section class='form-group'>
-              <label>Name on card:</label>
-              <input
-              type="text"
-              name="name"
-              class='form-control'
-              required>
-          </section>
-          <section class='form-group'>
-              <label>Card number:</label>
-              <input
-              class='form-control'
-              ng-model="payment.card.number"
-              type="text"
-              required>
-          </section>
-          <section class='form-group'>
-              <label>CVC:</label>
-              <input
-              class='form-control'
-              ng-model="payment.card.cvc"
-              type="text"
-              required>
-          </section>
-          <section class='form-group'>
-              <label>Exp. Mo</label>
-              <input
-              class='form-control'
-              ng-model="payment.card.exp_month"
-              type="text"
-              name="name"
-              placeholder="MM">
-          </section>
-          <section class='form-group'>
-              <label>Exp. Yr</label>
-              <input
-              class='form-control'
-              ng-model="payment.card.exp_year"
-              type="text"
-              name="name"
-              placeholder="YY">
-          </section>
-          <br />
-          <section>
-            <h2>Shipping Info</h2>
-            <form class="shipping">
-              <section class="form-group">
-                <label>Shipping name:</label>
-                <input ng-model="order.shipname" class="form-control" type="text"/>
-                <label>Shipping address:</label>
-                <input ng-model="order.shipaddress" class="form-control" type="text"/>
-                <label>Shipping address 2:</label>
-                <input ng-model="order.shipaddress2" class="form-control" type="text"/>
-                <label>Shipping city: </label>
-                <input ng-model="order.shipcity" class="form-control" type="text"/>
-                <label>Shipping state: </label>
-                <input ng-model="order.shipstate" class="form-control" type="text"/>
-                <label>Shipping zip: </label>
-                <input ng-model="order.shipzip" class="form-control" type="text"/>
-                <label>Shipping country: </label>
-                <input ng-model="order.shipcountry" class="form-control" type="text"/>
-              </section>
-              <section class="form-group">
-                <label>Shipping email: </label>
-                <input ng-model="order.shipemail" class="form-control" type="text"/>
-                <label>Shipping phone: </label>
-                <input ng-model="order.shipphone" class="form-control" type="text"/>
-              </section>
-            </form>
-          </section>
-        <button class='btn btn-primary' type='submit'>Confirm and Submit</button>
-      </form>
+        <h1>Payment Details</h1>
+        <section class='form-group'>
+          <label>Subtotal:</label>
+          <div style="display:inline-block">
+            {{total | currency}}
+          </div> <br />
+          <label>Taxes:</label>
+          <div style="display:inline-block">
+            {{tax | currency}}
+          </div> <br />
+          <label>Shipping:</label>
+          <div style="display:inline-block">
+            {{shipping | currency}}
+          </div>
+        </section>
+        <section class='form-group'>
+          <label>Name on card:</label>
+          <input type="text" name="name" class='form-control' required>
+        </section>
+        <section class='form-group'>
+          <label>Card number:</label>
+          <input class='form-control' ng-model="payment.card.number" type="text" required>
+        </section>
+        <section class='form-group'>
+          <label>CVC:</label>
+          <input class='form-control' ng-model="payment.card.cvc" type="text" required>
+        </section>
+        <section class='form-group'>
+          <label>Exp. Mo</label>
+          <input class='form-control' ng-model="payment.card.exp_month" type="text" name="name" placeholder="MM">
+        </section>
+        <section class='form-group'>
+          <label>Exp. Yr</label>
+          <input class='form-control' ng-model="payment.card.exp_year" type="text" name="name" placeholder="YY">
+        </section>
+        <br />
+        <section>
+          <h2>Shipping Info</h2>
+          <form class="shipping">
+            <section class="form-group">
+              <label>Shipping name:</label>
+              <input ng-model="order.shipname" class="form-control" type="text" />
+            </section>
+            <section class="form-group">
+              <label>Shipping address:</label>
+              <input ng-model="order.shipaddress" class="form-control" type="text" />
+            </section>
+            <section class="form-group">
+              <label>Shipping address 2:</label>
+              <input ng-model="order.shipaddress2" class="form-control" type="text" />
+            </section>
+            <section class="form-group">
+              <label>Shipping city: </label>
+              <input ng-model="order.shipcity" class="form-control" type="text" />
+            </section>
+            <section class="form-group">
+              <label>Shipping state: </label>
+              <input ng-model="order.shipstate" class="form-control" type="text" />
+            </section>
+            <section class="form-group">
+              <label>Shipping zip: </label>
+              <input ng-model="order.shipzip" class="form-control" type="text" />
+            </section>
+            <section class="form-group">
+              <label>Shipping country: </label>
+              <input ng-model="order.shipcountry" class="form-control" type="text" />
+            </section>
+        </section>
+        <section class="form-group">
+          <label>Shipping email: </label>
+          <input ng-model="order.shipemail" class="form-control" type="text" />
+          <label>Shipping phone: </label>
+          <input ng-model="order.shipphone" class="form-control" type="text" />
+        </section>
+        </form>
+    </section>
+    <button class='btn btn-primary' type='submit'>Confirm and Submit</button>
+    </form>
     </section>
   </div>
 
