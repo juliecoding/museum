@@ -13,6 +13,12 @@ var app = module.exports = express();
 app.use(express.static(__dirname + './../public'));
 app.use(bodyParser.json());
 
+app.use(session({
+  secret: config.SESSION_SECRET,
+  saveUninitialized: false,
+  resave: false
+}));
+
 
 //MASSIVE//
 var massiveUri = config.MASSIVE_URI;
@@ -26,13 +32,8 @@ var db = app.get('db');
 var dbSetup = require('./services/dbSetup'); //Q. Is this dbSetup file necessary any time you have a database? A. It's a good idea to include it when you have SQL databases.
 dbSetup.run();
 
-// SESSION AND PASSPORT //
+// PASSPORT //
 var passport = require('./services/passport');
-app.use(session({
-  secret: config.SESSION_SECRET,
-  saveUninitialized: false,
-  resave: false
-}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -51,16 +52,16 @@ app.get('/auth/callback', function(req, res, next) {
   }
   req.session.state = null;
   passport.authenticate('auth0', {
-    successRedirect: 'http://192.241.238.48:3100/#/shop' /*state*/ ,
-    failureRedirect: 'http://192.241.238.48:3100/#/'
+    successRedirect: '/#/shop',
+    failureRedirect: '/#/'
   })(req, res, next);
 });
 
 
-app.get('/api/logout', function(req, res, next) {
-  req.logout();
-  return res.status(200).send('Logged out');
-}); //MAY NOT WORK! Consult Passport-auth0 docs.
+// app.get('/api/logout', function(req, res, next) {
+//   req.logout();
+//   return res.status(200).send('Logged out');
+// }); //MAY NOT WORK! Consult Passport-auth0 docs.
 
 
 // POLICIES //
@@ -96,29 +97,7 @@ app.put('/api/user/update', usersController.updateUser);
 
 
 //STRIPE
-var stripe = require('stripe')(config.keySecret);
-
-// // payment
-// app.get("/api/payment", function (req, res) {
-// 	return res.render("index.pug", { pk_test_NptqejbBDylUODHwNCKeqnD8 });
-// });
-//
-// app.post("/api/charge", function (req, res) {
-// 	var amount = 500;
-// 	stripe.customers.create({
-// 		email: req.body.stripeEmail,
-// 		source: req.body.stripeToken
-// 	}).then(function (customer) {
-// 		return stripe.charges.create({
-// 			amount: amount,
-// 			description: "Sample Charge",
-// 			currency: "usd",
-// 			customer: customer.id
-// 		});
-// 	}).then(function (charge) {
-// 		return res.render("charge.pug");
-// 	});
-// });
+var stripe = require('stripe')(config.STRIPE_KEYS.secretKey);
 
 app.post('/api/payment', function(req, res, next) {
   console.log("tester string", req.body);
@@ -172,3 +151,7 @@ var port = config.PORT;
 app.listen(port, function() {
   console.log('Listening on port ' + port);
 });
+
+
+// http://192.241.238.48:3100/auth/callback, 
+// http://192.241.238.48:3100/#/,

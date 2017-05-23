@@ -8,8 +8,8 @@
   "dependencies": {
     "angular": "^1.6.2",
     "angular-stripe": "^4.2.12",
-    "bcryptjs": "^2.3.0",
     "body-parser": "^1.14.1",
+    "connect-ensure-login": "^0.1.1",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
     "gulp-nodemon": "^2.2.1",
