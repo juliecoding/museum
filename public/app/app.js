@@ -2,7 +2,7 @@ var app = angular.module("app", ['ui.router', 'angular-stripe'])
 
 .config(function($stateProvider, $urlRouterProvider, stripeProvider) {
 
-  stripeProvider.setPublishableKey('pk_test_NptqejbBDylUODHwNCKeqnD8');
+  stripeProvider.setPublishableKey('pk_test_buXe8Kr3ohMMAv4KnFoTztiu');
 
   $urlRouterProvider.otherwise("/");
 
