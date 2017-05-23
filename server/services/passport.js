@@ -14,6 +14,7 @@ passport.use(new Auth0Strategy(config.authConfig, function(accessToken, refreshT
   db.user.search_user_email([profile._json.email], function(err, user) {
     console.log(user);
     if (err) {
+      console.log(err);
       return done(err);
     } else if (!user.length) {
       console.log(user)
