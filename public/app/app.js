@@ -57,7 +57,6 @@ var app = angular.module("app", ['ui.router', 'angular-stripe'])
       templateUrl: './app/routes/acknowledgements/acknowledgementsTmpl.html'
     })
 
-
   // .state('profile', {
   // 	url: '/profile',
   // 	templateUrl: './app/routes/profile/profileTmpl.html',
