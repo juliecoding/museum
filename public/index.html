@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html ng-app="app">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png"  href="./assets/faviconF.ico">
-    <title>MoEA</title>
-    <!--<style>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="./assets/faviconF.ico">
+  <title>MoEA</title>
+  <!--<style>
      #map {
        width: 100%;
        height: 400px;
        background-color: green;
      }
    </style>-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Allura|Cormorant|Cormorant+Upright|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Allura|Cormorant|Cormorant+Upright|Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="./dist/style.css">
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div id="indexWrapper">
-      <nav-dir class="nav0"></nav-dir>
+  <div id="indexWrapper">
+    <nav-dir class="nav0"></nav-dir>
 
-      <ui-view></ui-view>
+    <ui-view></ui-view>
 
-      <footer-dir class="footer0"></footer-dir>
-    </div>
+    <footer-dir class="footer0"></footer-dir>
+  </div>
 
 
-    <script src="https://js.stripe.com/v2/"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-    <!-- <script src="node_modules\angular-modal-service\dst\angular-modal-service.min.js"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVAYqaCxalNWtQBOezVnoL5e3vbWBvTqc&libraries=places"
-    async defer></script>
-    <script src="./app/app.js" charset="utf-8"></script>
-    <script src="./dist/bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-stripe/4.2.12/angular-stripe.js" charset="utf-8"></script>
-  </body>
+  <script src="https://js.stripe.com/v2/"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+  <!-- <script src="node_modules\angular-modal-service\dst\angular-modal-service.min.js"></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVAYqaCxalNWtQBOezVnoL5e3vbWBvTqc&libraries=places" async defer></script>
+  <script src="./app/app.js" charset="utf-8"></script>
+  <script src="./dist/bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-stripe/4.2.12/angular-stripe.js" charset="utf-8"></script>
+</body>
+
 </html>
