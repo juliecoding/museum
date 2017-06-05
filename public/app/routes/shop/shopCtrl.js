@@ -21,22 +21,21 @@ angular.module("app").controller("shopCtrl", function($scope, productService, in
   $scope.addToCart = function(productid, qty) {
     console.log(productid, qty);
     incartService.addToCart(productid, qty)
-    .catch(function(err) {
+      .catch(function(err) {
         console.log(err);
         alert('Please log in before continuing');
         $state.go('auth')
-    })
-    .then(function(response) {
-      if (response) {
-        console.log(response);
-        //$state.go('orders');
-      }
-    })
-    .then(orderService.getOrder().then(function(response) {
+      })
+      .then(function(response) {
+        if (response) {
+          console.log(response);
+          //$state.go('orders');
+        }
+      })
+      .then(orderService.getOrder().then(function(response) {
         console.log(response);
         $scope.cartExtent = response.data.products.length;
-      })
-    )
+      }))
   }
 
 
@@ -46,5 +45,11 @@ angular.module("app").controller("shopCtrl", function($scope, productService, in
     }
     return false;
   }
+
+  // $scope.logout = function() {
+  //   authService.logout().then(function(response) {
+  //     $state.go('login');
+  //   });
+  // };
 
 });

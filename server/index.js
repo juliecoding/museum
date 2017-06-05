@@ -151,7 +151,3 @@ var port = config.PORT;
 app.listen(port, function() {
   console.log('Listening on port ' + port);
 });
-
-
-// http://192.241.238.48:3100/auth/callback, 
-// http://192.241.238.48:3100/#/,
